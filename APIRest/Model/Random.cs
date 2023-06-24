@@ -62,14 +62,14 @@ namespace APIRest.Model
         {
             try
             {
-                string code = guid.GetHashCode().ToString();
+                string code = guid.code.ToString().Replace(@"""","");
 
                 char[] separar = code.ToCharArray();
                 int value;
                 List<string> unir = new List<string>();
                 for (int i = 0; i < separar.Length; i++)
                 {
-                    if (separar[i] == ' ')
+                    if (separar[i] == '+')
                     {
                         separar[i] = '=';
                     }
